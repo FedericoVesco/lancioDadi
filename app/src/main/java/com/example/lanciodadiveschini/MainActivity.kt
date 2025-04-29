@@ -3,6 +3,7 @@ package com.example.lanciodadiveschini
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -19,6 +20,8 @@ class MainActivity : AppCompatActivity() {
         //Imposta una condizione al click
         btnRoll.setOnClickListener {
             val mioRandom = random()
+            val mioToast = Toast.makeText(this, "Dado lanciato!", Toast.LENGTH_SHORT)
+            mioToast.show()
             lanciaIntent(mioRandom)
         }
     }

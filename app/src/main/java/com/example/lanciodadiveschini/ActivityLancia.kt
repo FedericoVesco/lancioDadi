@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -18,6 +19,8 @@ class ActivityLancia : AppCompatActivity() {
         val mioRandom = intent.getIntExtra("RANDOM", -1)
         val btnContinua = findViewById<Button>(R.id.btnContinua)
         btnContinua.setOnClickListener {
+            val mioToast = Toast.makeText(this, "Scopri se hai vinto!", Toast.LENGTH_SHORT)
+            mioToast.show()
             lanciaIntent(mioRandom)
         }
 
@@ -36,7 +39,7 @@ class ActivityLancia : AppCompatActivity() {
     }
 
     private fun lanciaIntent(mioRandom: Int){
-        val mioIntent = Intent(this, ActivityLancia::class.java)
+        val mioIntent = Intent(this, ActivityRisultato::class.java)
         mioIntent.putExtra("RANDOM", mioRandom)
         startActivity(mioIntent)
     }
