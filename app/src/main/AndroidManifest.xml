@@ -13,6 +13,9 @@
         android:theme="@style/Theme.LancioDadiVeschini"
         tools:targetApi="31">
         <activity
+            android:name=".ActivityRisultato"
+            android:exported="false" />
+        <activity
             android:name=".ActivityLancia"
             android:exported="false" />
         <activity

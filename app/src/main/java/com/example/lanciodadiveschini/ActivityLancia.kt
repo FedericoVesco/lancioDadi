@@ -1,6 +1,8 @@
 package com.example.lanciodadiveschini
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -14,8 +16,13 @@ class ActivityLancia : AppCompatActivity() {
         setContentView(R.layout.activity_lancia)
 
         val mioRandom = intent.getIntExtra("RANDOM", -1)
+        val btnContinua = findViewById<Button>(R.id.btnContinua)
+        btnContinua.setOnClickListener {
+            lanciaIntent(mioRandom)
+        }
 
         val dado = findViewById<ImageView>(R.id.dado)
+        //Array associativo
         val dadi = when(mioRandom){
             1 -> R.drawable.dice_face_1
             2 -> R.drawable.dice_face_2
@@ -26,5 +33,11 @@ class ActivityLancia : AppCompatActivity() {
         }
 
         dado.setImageResource(dadi as Int)
+    }
+
+    private fun lanciaIntent(mioRandom: Int){
+        val mioIntent = Intent(this, ActivityLancia::class.java)
+        mioIntent.putExtra("RANDOM", mioRandom)
+        startActivity(mioIntent)
     }
 }

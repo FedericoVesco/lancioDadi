@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         //Imposta una condizione al click
         btnRoll.setOnClickListener {
             val mioRandom = random()
-            intent(mioRandom)
+            lanciaIntent(mioRandom)
         }
     }
 
@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         return (1..6).random()
     }
 
-    private fun intent(mioRandom: Int){ //Richiama il secondo activity (Lancia) passando il numero random
+    private fun lanciaIntent(mioRandom: Int){ //Richiama il secondo activity (Lancia) passando il numero random
         val mioIntent = Intent(this, ActivityLancia::class.java)
         mioIntent.putExtra("RANDOM", mioRandom)
         startActivity(mioIntent)
